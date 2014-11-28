@@ -26,9 +26,7 @@ class Hash
   #     dup       #=> { :foo => 'bar' }
 
   def symbolize_keys
-    dup = {}
-    self.each {|k, v| dup[k.to_sym] = v }
-    dup
+    modify_keys {|key| key.to_sym }
   end
 
   # The +#symbolize_keys!+ method converts string hash keys into symbols.
@@ -65,9 +63,7 @@ class Hash
   #     dup       #=> { 'foo' => 'bar' }
 
   def stringify_keys
-    dup = {}
-    self.each {|k, v| dup[k.to_s] = v }
-    dup
+    modify_keys {|key| key.to_s }
   end
 
   # The +#stringify_keys!+ method converts symbol hash keys into strings.
@@ -89,6 +85,17 @@ class Hash
   end
 
   private
+
+    # The private +#modify_keys+ method iterates through the calling hash,
+    # returning a duplicate with keys modified according to a given +block+.
+    # This is a non-destructive method; it returns a duplicate of the calling
+    # hash, leaving the original as-is.
+
+    def modify_keys(&block) 
+      dup = {}
+      self.each {|k,v| dup[yield k] = v }
+      dup
+    end
 
     # The private +#modify_keys!+ method iterates through the calling hash, 
     # modifying its keys in place according to a given +block+. It returns 
