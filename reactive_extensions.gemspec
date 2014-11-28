@@ -22,6 +22,8 @@ Gem::Specification.new do |s|
   s.licenses                  = 'MIT'
   s.extra_rdoc_files          = %w('README.md' 'LICENSE')
 
+  s.add_runtime_dependency     'reactive_support'
+
   s.add_development_dependency 'rspec', '~> 3.1'
   s.add_development_dependency 'bundler', '~> 1.7'
   s.add_development_dependency 'coveralls', '~> 0.7', '>= 0.7.2'
