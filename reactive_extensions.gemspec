@@ -28,7 +28,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'bundler', '~> 1.7'
   s.add_development_dependency 'coveralls', '~> 0.7', '>= 0.7.2'
   s.add_development_dependency 'simplecov', '~> 0.9', '>= 0.9.1'
-  s.add_development_dependency 'rake', '~> 10.3', '>= 10.3.2'
+  s.add_development_dependency 'rake', '~> 10.4'
 
   s.has_rdoc         = true
   s.homepage         = 'http://github.com/danascheider/reactive_extensions'
