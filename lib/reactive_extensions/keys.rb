@@ -46,11 +46,7 @@ class Hash
   #     orig      #=> { :foo => 'bar' }
 
   def symbolize_keys!
-    keys.each do |key|
-      self[(key.to_sym rescue key) || key] = delete(key)
-    end
-
-    self
+    modify_keys! {|key| key.to_sym }
   end
 
   # The +#stringify_keys+ method returns a hash identical to the calling
@@ -89,10 +85,20 @@ class Hash
   #     orig      #=> { 'foo' => 'bar' }
 
   def stringify_keys!
-    keys.each do |key|
-      self[(key.to_s rescue key) || key] = delete(key)
-    end
-
-    self
+    modify_keys! {|key| key.to_s }
   end
+
+  private
+
+    # The private +#modify_keys!+ method iterates through the calling hash, 
+    # modifying its keys in place according to a given +block+. It returns 
+    # the original hash. This is a destructive method; the hash will no 
+    # longer be available in its original form after +#modify_keys!+ is called.
+
+    def modify_keys!(&block)
+      keys.each do |key|
+        self[(yield(key) rescue key) || key] = delete(key)
+      end
+      self
+    end
 end
