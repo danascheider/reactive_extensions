@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.require_paths             = ['lib']
   s.test_files                = s.files.select {|path| path =~ /^spec\/.*\.rb/ }
   s.licenses                  = 'MIT'
-  s.extra_rdoc_files          = %w('README.md' 'LICENSE')
+  s.extra_rdoc_files          = %w(README.md LICENSE)
 
   s.add_runtime_dependency     'reactive_support'
 
