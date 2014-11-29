@@ -1,3 +1,6 @@
+require 'reactive_support/core_ext/object/duplicable'
+require 'reactive_support/core_ext/object/deep_dup'
+
 Dir['./lib/reactive_extensions/**/*.rb'].each {|f| require f }
 
 # The ReactiveExtensions module adds useful methods to core Ruby classes. You
