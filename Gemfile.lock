@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     reactive_extensions (0.4.0.beta)
-      reactive_support
+      reactive_support (>= 0.5.0.beta)
 
 GEM
   remote: https://rubygems.org/
@@ -18,7 +18,7 @@ GEM
     mime-types (2.4.3)
     multi_json (1.10.1)
     rake (10.4.0)
-    reactive_support (0.2.1)
+    reactive_support (0.5.0.beta)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rspec (3.1.0)
