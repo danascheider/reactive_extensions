@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
 
   s.name                      = 'reactive_extensions'
   s.version                   = ReactiveExtensions.gem_version
-  s.date                      = '2014-11-28'
+  s.date                      = '2014-11-29'
 
   s.description               = 'Handy extensions to core Ruby classes'
   s.summary                   = 'ReactiveExtensions, a spinoff of ReactiveSupport, adds a variety of useful methods to core Ruby classes.'
