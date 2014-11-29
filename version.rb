@@ -7,7 +7,7 @@ module ReactiveExtensions
     MAJOR = '0'
     MINOR = '4'
     PATCH = '0'
-    PRE   = 'beta'
+    PRE   = 'beta2'
 
     STRING = [MAJOR, MINOR, PATCH, PRE].join('.').chomp('.')
   end

@@ -4,7 +4,7 @@ require File.expand_path('../files.rb', __FILE__)
 Gem::Specification.new do |s|
   s.specification_version     = 1 if s.respond_to? :specification_version=
   s.required_rubygems_version = Gem::Requirement.new('>= 0') if s.respond_to? :required_rubygems_version
-  s.required_ruby_version     = '1.9.3'
+  s.required_ruby_version     = '>= 1.9.3'
 
   s.name                      = 'reactive_extensions'
   s.version                   = ReactiveExtensions.gem_version
