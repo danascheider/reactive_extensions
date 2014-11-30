@@ -10,7 +10,7 @@ describe Array do
     let(:camus) { { 'name' => 'Albert Camus', 'nationality' => 'French' } }
     let(:array) { [sartre, russell, wittgenstein, camus] }
 
-    describe 'array #scope method' do 
+    describe 'scope' do 
       context 'symbol keys' do
         context 'single value' do 
           it 'returns scoped hashes' do 
@@ -42,7 +42,7 @@ describe Array do
       end
     end
 
-    describe 'array #where_not method' do 
+    describe 'where_not' do 
       context 'symbol keys' do 
         context 'single value' do 
           it 'returns scoped hashes' do 
