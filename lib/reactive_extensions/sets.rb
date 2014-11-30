@@ -48,13 +48,11 @@ class Array
   # of order. If the calling array is empty, the method returns true.
   #
   # Examples:
-  #     hash = {:foo => 'bar', :bar => 'baz', :baz => 'qux'}
-  #     {:baz => 'qux'}.subset_of? hash                          # => true
-  #     {:bar => 'baz', :norf => 'foo'}.subset_of? hash          # => false
-  #     {:norf => 'foo'}.subset_of? hash                         # => false
-  #     {:foo => 'qux'}.subset_of? hash                          # => false
-  #     {}.subset_of? hash                                       # => true
-  #     {:foo => 'bar'}.subset_of? 'foobar'                      # => ArgumentError
+  #     array = [1, 2, 3, 4]
+  #     [1, 3].subset_of? array                   # => true
+  #     [1, 6].subset_of? array                   # => false
+  #     [].subset_of? array                       # => true
+  #     array.subset_of? 'foobar'                 # => ArgumentError
 
   def subset_of?(array)
     raise ArgumentError.new("Argument of Array#subset_of? must be an array") unless array.instance_of? Array

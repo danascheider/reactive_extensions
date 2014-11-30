@@ -113,5 +113,43 @@ describe Array do
         end
       end
     end
+
+    describe 'superset_of?' do 
+      context 'when the argument is a strict subset of the subject' do 
+        it 'returns true' do 
+          expect([1, 2, 3, 4].superset_of? [1, 2]).to be true
+        end
+      end
+
+      context 'when the argument is equal to the subject' do 
+        it 'returns true' do 
+          expect([1, 2].superset_of? [1, 2]).to be true
+        end
+      end
+
+      context 'when the argument array is empty' do 
+        it 'returns true' do 
+          expect(['foo', 'bar', 'baz'].superset_of?([])).to be true 
+        end
+      end
+
+      context 'when the elements are not consecutive' do 
+        it 'returns true' do 
+          expect([2, 4].subset_of? [1, 2, 3, 4]).to be true
+        end
+      end
+
+      context 'when the calling object is inside the argument' do 
+        it 'returns false' do 
+          expect([1, 2].subset_of? [[1, 2], 3, 4]).to be false
+        end
+      end
+
+      context 'when the argument is not an array' do 
+        it 'raises an error' do 
+          expect{[1, 2].subset_of? 427}.to raise_error(ArgumentError)
+        end
+      end
+    end
   end
 end
