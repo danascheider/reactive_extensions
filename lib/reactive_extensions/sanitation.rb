@@ -119,12 +119,12 @@ class Hash
   #     hash.standardize(:foo, :qux, :errors => true)     # => ArgumentError
 
   def standardize(*kees)
-    options = kees.pop if kees.last.is_a? Hash
+    options = kees.extract_options!
     dup     = deep_dup.only(kees)
 
     kees.each do |key| 
       unless dup.has_key? key
-        raise ArgumentError.new("#{self} is missing required key #{key}") if options.try_rescue(:[], :errors) === true
+        raise ArgumentError.new("#{self} is missing required key #{key}") if options[:errors]
         dup[key] = nil
       end
     end
@@ -133,11 +133,11 @@ class Hash
   end
 
   def standardize!(*kees)
-    options = kees.pop if kees.last.is_a? Hash
+    options = kees.extract_options!
 
     kees.each do |key|
       unless only!(kees).has_key? key
-        raise ArgumentError.new("#{self} is missing required key #{key}") if options.try_rescue(:[], :errors) === true
+        raise ArgumentError.new("#{self} is missing required key #{key}") if options[:errors]
         self[key] = nil
       end
     end

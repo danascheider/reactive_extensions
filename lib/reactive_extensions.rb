@@ -2,6 +2,7 @@ require 'reactive_support/core_ext/object/duplicable'
 require 'reactive_support/core_ext/object/deep_dup'
 require 'reactive_support/core_ext/object/inclusion'
 require 'reactive_support/core_ext/object/try'
+require 'reactive_support/core_ext/array/extract_options'
 
 Dir['./lib/reactive_extensions/**/*.rb'].each {|f| require f }
 
