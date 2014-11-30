@@ -35,22 +35,28 @@ class Object
   end
 end
 
-# The +#try_rescue+ method extends ReactiveSupport's +#try+ method so it rescues
-# NoMethodErrors and TypeErrors as well as returning +nil+ when called on a +nil+
-# value.
-# 
-# Like the +#try+ method, +#try_rescue+ takes 1 or more arguments. The first argument
-# is the method to be called on the calling object, passed as a symbol. The others
-# are zero or more arguments that will be passed through to that method, and an 
-# optional block to be likewise passed through.
-#
-# When called on NilClass, +#try_rescue+ always returns nil.
-#
-# Example:
-#     foo = nil 
-#     foo.try_rescue(:has_key?, :bar)     # => nil
+# Ruby's core NilClass. See documentation for version 
+# 2.1.5[http://ruby-doc.org/core-2.1.5/NilClass.html],
+# 2.0.0[http://ruby-doc.org/core-2.0.0/NilClass.html], or 
+# 1.9.3[http://ruby-doc.org/core-1.9.3/NilClass.html].
 
 class NilClass
+
+  # The +#try_rescue+ method extends ReactiveSupport's +#try+ method so it rescues
+  # NoMethodErrors and TypeErrors as well as returning +nil+ when called on a +nil+
+  # value.
+  # 
+  # Like the +#try+ method, +#try_rescue+ takes 1 or more arguments. The first argument
+  # is the method to be called on the calling object, passed as a symbol. The others
+  # are zero or more arguments that will be passed through to that method, and an 
+  # optional block to be likewise passed through.
+  #
+  # When called on NilClass, +#try_rescue+ always returns nil.
+  #
+  # Example:
+  #     foo = nil 
+  #     foo.try_rescue(:has_key?, :bar)     # => nil
+
   def try_rescue(*args, &block)
     nil 
   end
