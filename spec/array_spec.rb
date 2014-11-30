@@ -109,7 +109,7 @@ describe Array do
 
       context 'when the argument is not an array' do 
         it 'raises an error' do 
-          expect{[1, 2].subset_of? 427}.to raise_error(ArgumentError)
+          expect{[1, 2].subset_of? {}}.to raise_error(ArgumentError)
         end
       end
     end
@@ -135,19 +135,19 @@ describe Array do
 
       context 'when the elements are not consecutive' do 
         it 'returns true' do 
-          expect([2, 4].subset_of? [1, 2, 3, 4]).to be true
+          expect([1, 2, 3, 4].superset_of? [1, 4]).to be true
         end
       end
 
-      context 'when the calling object is inside the argument' do 
+      context 'when the argument is a single index' do 
         it 'returns false' do 
-          expect([1, 2].subset_of? [[1, 2], 3, 4]).to be false
+          expect([[1, 2], 3, 4].superset_of? [1, 2]).to be false
         end
       end
 
       context 'when the argument is not an array' do 
         it 'raises an error' do 
-          expect{[1, 2].subset_of? 427}.to raise_error(ArgumentError)
+          expect{[1, 2].superset_of? 427}.to raise_error(ArgumentError)
         end
       end
     end

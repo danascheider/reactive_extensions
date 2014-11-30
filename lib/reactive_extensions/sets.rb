@@ -59,4 +59,22 @@ class Array
     each {|i| return false unless array.include? i }
     true
   end
+
+  # The +#superset_of?+ method checks whether the calling array is a superset
+  # of the given +array+. It returns true if all objects in the calling array
+  # are also present in the array passed as an argument. If the argument array 
+  # is empty, the method returns true.
+  #
+  # Examples:
+  #     array = [1, 2, 3, 4]
+  #     array.superset_of? [1, 2]                          # => true
+  #     array.superset_of? [1, 2, 3, 4]                    # => true
+  #     array.superset_of? [3, 6]                          # => false
+  #     array.superset_of? []                              # => true
+  #     array.superset_of? {}                              # => ArgumentError
+
+  def superset_of?(array)
+    raise ArgumentError.new("Argument of Array#superset_of? must be an array") unless array.instance_of? Array
+    array.subset_of? self
+  end
 end
