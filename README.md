@@ -6,14 +6,14 @@ in the spirit of [ActiveSupport](https://github.com/rails/activesupport). This g
 be used in any kind of project and is not dependent on any frameworks, gemsets, etc.
 Its only runtime dependency is [ReactiveSupport](https://github.com/danascheider/reactive_support).
 To add ReactiveExtensions to your project, add this to your Gemfile and run `bundle install`:
-<pre><code>gem 'reactive_extensions', '~> 0.4.0.beta'</code></pre>
+<pre><code>gem 'reactive_extensions', '~> 0.5.0.beta'</code></pre>
 To install locally:
 <pre><code>sudo gem install reactive_extensions</code></pre>
 Or if you're using RVM: 
 <pre><code>gem install reactive_extensions</code></pre>
 
 You can also point your Gemfile to this repo:
-<pre><code>gem 'reactive_extensions', '~> 0.4.0.beta', git: 'https://github.com/danascheider/reactive_extensions.git</code></pre>
+<pre><code>gem 'reactive_extensions', '~> 0.5.0.beta', git: 'https://github.com/danascheider/reactive_extensions.git</code></pre>
 
 After installing, simply include this in your main project file:
 <pre><code>require 'reactive_support'</code></pre>
