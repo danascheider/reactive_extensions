@@ -28,6 +28,7 @@ describe Hash do
     context 'when the argument is not a hash' do 
       it 'raises an ArgumentError' do 
         expect{ hash - {:baz => 'qux' } }.to raise_error(ArgumentError)
+      end
     end
   end
 
