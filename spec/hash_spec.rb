@@ -18,6 +18,19 @@ describe Hash do
     end
   end
 
+  describe '-' do 
+    context 'when the argument is a hash' do 
+      it 'removes the keys of the argument from the calling hash' do 
+        expect(hash - {:baz => 'qux'})
+      end
+    end
+
+    context 'when the argument is not a hash' do 
+      it 'raises an ArgumentError' do 
+        expect{ hash - {:baz => 'qux' } }.to raise_error(ArgumentError)
+    end
+  end
+
   describe 'clean' do 
     it 'removes specified keys' do 
       expect(hash.clean(:baz)).to eql({:foo => 'bar'})
