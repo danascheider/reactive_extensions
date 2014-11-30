@@ -4,7 +4,7 @@ require 'reactive_support/core_ext/object/inclusion'
 require 'reactive_support/core_ext/object/try'
 require 'reactive_support/core_ext/array/extract_options'
 
-Dir['./lib/reactive_extensions/*.rb'].each {|f| require f }
+Dir['./lib/reactive_extensions/**/*.rb'].each {|f| require f }
 
 # The ReactiveExtensions module adds useful methods to core Ruby classes. You
 # can use these methods by adding +require 'reactive_extensions'+ to your project.
