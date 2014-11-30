@@ -25,6 +25,12 @@ describe Hash do
       end
     end
 
+    context 'when the argument has additional keys' do 
+      it 'subtracts the present keys' do 
+        expect(hash - {:baz => 'qux', :norf => 'raboof'}).to eql({:foo => 'bar'})
+      end
+    end
+
     context 'when the argument is not a hash' do 
       it 'raises an ArgumentError' do 
         expect{ hash - {:baz => 'qux' } }.to raise_error(ArgumentError)
