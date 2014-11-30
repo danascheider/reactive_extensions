@@ -1,2 +1,2 @@
-require './lib/reactive_extensions/object/sets'
-require './lib/reactive_extensions/object/try_rescue'
+require_relative './object/sets'
+require_relative './object/try_rescue'
