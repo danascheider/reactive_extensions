@@ -112,6 +112,7 @@ class Hash
   #     hash = {:foo => 'bar', :bar => 'baz'}
   #     hash.standardize(:foo)                  # => {:foo => 'bar'}
   #     hash.standardize(:foo, :qux)            # => {:foo => 'bar', :qux => nil}
+  #     hash                                    # => {:foo => 'bar', :bar => 'baz'}
   #
   # Examples with +:errors => true+:
   #     hash = {:foo => 'bar', :bar 'baz'}
@@ -131,6 +132,29 @@ class Hash
 
     dup
   end
+
+  # The +#standardize!+ method modifies the calling hash such that its 
+  # keys match the +*kees+ specified as arguments. Any other keys in the hash 
+  # will be removed. If passed +:errors => true+, an +ArgumentError+ will be
+  # raised in the event keys present in the arguments are not present in the
+  # calling hash. Otherwise, any such keys will be added to the hash and 
+  # populated with nil values.
+  #
+  # +#standardize!+ is a destructive method; the calling hash will be changed
+  # in place when it is called.
+  #
+  # Examples with +:errors => false+:
+  #     hash = {:foo => 'bar', :bar => 'baz'}
+  #     hash.standardize!(:foo, :qux)            # => {:foo => 'bar', :qux => nil}
+  #     hash.standardize!(:foo)                  # => {:foo => 'bar'}
+  #     hash                                     # => {:foo => 'bar'}
+  #
+  # Examples with +:errors => true+:
+  #     hash = {:foo => 'bar', :bar 'baz'}
+  #     hash.standardize!(:foo, :errors => true)           # => {:foo => 'bar'}
+  #     hash.standardize!(:foo, :qux, :errors => true)     # => ArgumentError
+  #     hash                                               # => {:foo => 'bar'}
+
 
   def standardize!(*kees)
     options = kees.extract_options!
