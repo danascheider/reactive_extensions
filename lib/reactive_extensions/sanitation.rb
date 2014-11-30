@@ -120,7 +120,7 @@ class Hash
 
   def standardize(*kees)
     options = kees.pop if kees.last.is_a? Hash
-    dup = deep_dup.only(kees)
+    dup     = deep_dup.only(kees)
 
     kees.each do |key| 
       unless dup.has_key? key
@@ -132,6 +132,16 @@ class Hash
     dup
   end
 
-  def standardize!(*keys, errors: false)
+  def standardize!(*kees)
+    options = kees.pop if kees.last.is_a? Hash
+
+    kees.each do |key|
+      unless only!(kees).has_key? key
+        raise ArgumentError.new("#{self} is missing required key #{key}") if options.try_rescue(:[], :errors) === true
+        self[key] = nil
+      end
+    end
+
+    self
   end
 end
