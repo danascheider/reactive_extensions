@@ -3,7 +3,22 @@ require 'spec_helper'
 describe Hash do 
   let(:hash) { { :foo => 'bar', :baz => 'qux' } }
 
-  describe '#clean' do 
+  describe '+' do 
+    context 'when argument is a hash' do 
+      it 'adds the second hash\'s keys to the first hash' do 
+        new_hash = {:foo => :bar} + {:baz => :qux}
+        expect(new_hash).to eql({:foo => :bar, :baz => :qux})
+      end
+    end
+
+    context 'when argument is not a hash' do 
+      it 'raises an error' do 
+        expect{ {:foo => :bar} + Time.now }.to raise_error
+      end
+    end
+  end
+
+  describe 'clean' do 
     it 'removes specified keys' do 
       expect(hash.clean(:baz)).to eql({:foo => 'bar'})
     end
@@ -27,7 +42,7 @@ describe Hash do
     end
   end
 
-  describe '#clean!' do 
+  describe 'clean!' do 
     it 'removes specified keys' do 
       expect(hash.clean!(:baz)).to eql({:foo => 'bar'})
     end
@@ -51,7 +66,7 @@ describe Hash do
     end
   end
 
-  describe '#only' do 
+  describe 'only' do 
     it 'retains only listed keys' do 
       expect(hash.only(:foo)).to eql({:foo => 'bar'})
     end
@@ -75,7 +90,7 @@ describe Hash do
     end
   end
 
-  describe '#only!' do 
+  describe 'only!' do 
     it 'retains only listed keys' do 
       expect(hash.only!(:foo)).to eql({:foo => 'bar'})
     end
@@ -99,7 +114,7 @@ describe Hash do
     end
   end
 
-  describe '#standardize' do 
+  describe 'standardize' do 
     let(:hash) { { :foo => 'bar', :bar => 'baz', :baz => 'qux' } }
 
     it 'is non-destructive' do 
@@ -149,7 +164,7 @@ describe Hash do
     end
   end
 
-  describe '#standardize!' do 
+  describe 'standardize!' do 
     let(:hash) { { :foo => 'bar', :bar => 'baz', :baz => 'qux' } }
 
     it 'is destructive' do 
