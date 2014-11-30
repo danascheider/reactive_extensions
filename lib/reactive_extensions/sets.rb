@@ -39,3 +39,26 @@ class Hash
     hash.subset_of? self
   end
 end
+
+class Array
+
+  # The +#subset_of?+ method checks whether the calling array is a subset
+  # of the given +array+. It returns true if all objects in the calling 
+  # array are also present in the hash passed as an argument, regardless 
+  # of order. If the calling array is empty, the method returns true.
+  #
+  # Examples:
+  #     hash = {:foo => 'bar', :bar => 'baz', :baz => 'qux'}
+  #     {:baz => 'qux'}.subset_of? hash                          # => true
+  #     {:bar => 'baz', :norf => 'foo'}.subset_of? hash          # => false
+  #     {:norf => 'foo'}.subset_of? hash                         # => false
+  #     {:foo => 'qux'}.subset_of? hash                          # => false
+  #     {}.subset_of? hash                                       # => true
+  #     {:foo => 'bar'}.subset_of? 'foobar'                      # => ArgumentError
+
+  def subset_of?(array)
+    raise ArgumentError.new("Argument of Array#subset_of? must be an array") unless array.instance_of? Array
+    each {|i| return false unless array.include? i }
+    true
+  end
+end
