@@ -155,7 +155,6 @@ class Hash
   #     hash.standardize!(:foo, :qux, :errors => true)     # => ArgumentError
   #     hash                                               # => {:foo => 'bar'}
 
-
   def standardize!(*kees)
     options = kees.extract_options!
 
