@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'reactive_support/core_ext/hash/keys'
 
 describe Array do 
   describe 'array scoping' do 
