@@ -1,3 +1,5 @@
+require 'reactive_support/core_ext/object/try'
+
 # This file adds the +#scope+, #where, and +#where_not+ methods to the +Array+ class.
 # These methods work on an array of hashes, returning hashes for which the given
 # condition is true.

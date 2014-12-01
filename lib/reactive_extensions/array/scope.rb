@@ -30,7 +30,7 @@ class Array
   #            ]
 
   def scope(key, *values)
-    self.select {|hash| hash[key].in?(values) }
+    self.select {|hash| values.include? hash[key] }
   end
 
   # The +#where_not+ method is called on an array of hashes. It returns a sub-array
@@ -55,6 +55,6 @@ class Array
   #            ]
 
   def where_not(key, *values)
-    self.reject {|hash| hash[key].in?(values) }
+    self.reject {|hash| values.include? hash[key] }
   end
 end

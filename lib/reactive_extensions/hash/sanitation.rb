@@ -1,3 +1,6 @@
+require 'reactive_support/core_ext/object/deep_dup'
+require 'reactive_support/core_ext/array/extract_options'
+
 # This file adds the +#clean+, +#clean!+, +#only+, +#only!+, +#standardize+,
 # and +#standardize!+ methods to Ruby's core Hash class. These methods enable
 # the user to easily add or remove particular keys from a hash.

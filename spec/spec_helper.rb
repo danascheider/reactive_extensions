@@ -1,7 +1,7 @@
 require 'simplecov'
 require 'coveralls'
 require 'rspec'
-
+require 'reactive_support/core_ext/hash/keys'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
   SimpleCov::Formatter::HTMLFormatter,

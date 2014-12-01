@@ -1,3 +1,5 @@
+require 'reactive_support/core_ext/object/deep_dup'
+
 # This file adds the #raises_error? method to a Proc object. This 
 # method checks whether the proc raises an error when called with
 # the given parameters.

@@ -1,3 +1,5 @@
+require 'reactive_support/core_ext/object/deep_dup'
+
 class Hash
 
   # The +#-+ method takes a single hash as an argument. It 
