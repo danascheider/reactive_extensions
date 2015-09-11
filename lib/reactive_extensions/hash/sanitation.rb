@@ -16,8 +16,14 @@ class Hash
   # specified +*bad_keys+, if present, removed. If none of the bad keys
   # are present, +#clean+ will simply return a duplicate hash. 
   #
+  # The +#clean+ method takes an arbitrary number of parameters, designated
+  # +*bad_keys+. Any of these keys that are present in the hash calling
+  # the method will be removed in the duplicate that is returned.
+  #
   # +#clean+ is a non-destructive method. The original hash will still be
   # unchanged after it is called.
+  #
+  # +#clean+ returns the cleaned duplicate of the hash calling it.
   #
   # +#clean+ may also be called by the aliases +#not+ and +#except+.
   #
@@ -39,10 +45,16 @@ class Hash
 
   # The +#clean!+ method returns a duplicate of the calling hash with the 
   # specified +*bad_keys+, if present, removed. If none of the bad keys
-  # are present, +#clean!+ will simply return a duplicate hash. 
+  # are present, +#clean!+ will simply return a duplicate hash.
   #
-  # +#clean!+ is a non-destructive method. The original hash will still be
-  # unchanged after it is called.
+  # +#clean!+ returns +self+.
+  #
+  # The +#clean!+ method takes an arbitrary number of parameters, designated
+  # +*bad_keys+. Any of these keys that are present in the hash calling
+  # the method will be removed in the duplicate that is returned.
+  #
+  # +#clean!+ is a destructive method that modifies the hash that calls
+  # it in place. For an analogous non-destructive method, use +#clean+.
   #
   # +#clean!+ may also be called by the aliases +#not!+ and +#except!+.
   #
